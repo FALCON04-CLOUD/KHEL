@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHEL - Wholesale, Retail & Distribution</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a56db',
+                        secondary: '#046c4e',
+                        accent: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image:url(h  )
+            background-size: cover;
+            background-position: center;
+        }
+        .branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .team-card:hover {
+            transform: scale(1.03);
+        }
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center" onclick="navigate(event, 'home')">
+                        <span class="text-2xl font-bold text-primary dark:text-white">KHEL</span>
+                        <span class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-300">Wholesale • Retail • Distribution</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'home')">Home</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'about')">About Us</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'branches')">Our Branches</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'team')">Management</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'contact')">Contact</a>
+                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary dark:focus:ring-accent">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'home')">Home</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'about')">About Us</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'branches')">Our Branches</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'team')">Management</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent" onclick="navigate(event, 'contact')">Contact</a>
+                <button id="mobile-theme-toggle" type="button" class="block px-3 py-2 text-left text-base font-medium text-gray-700 dark:text-gray-300 hover:text-accent">
+                    <i id="mobile-theme-icon" class="fas fa-moon mr-2"></i>Toggle Theme
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg text-white pt-24 pb-32 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="md:w-2/3 lg:w-1/2">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">KHEL Distribution Network</h1>
+                    <p class="text-xl mb-8">Serving the nation with quality products through our 9 branches countrywide. Your trusted partner in wholesale, retail and distribution.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="navigate(event, 'branches')" class="bg-accent hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Find a Branch <i class="fas fa-map-marker-alt ml-2"></i>
+                        </button>
+                        <button onclick="navigate(event, 'contact')" class="bg-transparent hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-6 border-2 border-white rounded-lg transition duration-300">
+                            Contact Us <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About KHEL</h2>
+                    <div class="w-20 h-1 bg-accent mx-auto"></div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Our Story</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">Founded with a vision to revolutionize distribution networks, KHEL has grown from a single store to a nationwide network of 9 branches serving both wholesale and retail customers with excellence.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">We pride ourselves on our efficient logistics, quality products, and customer-first approach that has made us a trusted name in the industry.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-3">
+                                    <i class="fas fa-truck text-primary text-xl"></i>
+                                </div>
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">Nationwide Delivery</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-secondary bg-opacity-10 p-3 rounded-full mr-3">
+                                    <i class="fas fa-store text-secondary text-xl"></i>
+                                </div>
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">9 Branches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="
+                        <div class="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded-lg shadow-lg hidden md:block">
+                            <p class="text-2xl font-bold">25+</p>
+                            <p class="text-sm">Years in Business</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Services</h2>
+                    <div class="w-20 h-1 bg-accent mx-auto"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <div class="bg-primary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i class="fas fa-boxes text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3">Wholesale Distribution</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Bulk supply solutions for businesses with competitive pricing and reliable delivery schedules.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <div class="bg-secondary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i class="fas fa-shopping-cart text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3">Retail Operations</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Quality products at competitive prices through our nationwide retail outlets.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <div class="bg-accent bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i class="fas fa-warehouse text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3">Logistics Solutions</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Efficient nationwide distribution network ensuring timely deliveries to all regions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branches Section -->
+        <section id="branches" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Branches</h2>
+                    <div class="w-20 h-1 bg-accent mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">With 9 branches across the country, we're never too far from serving your needs.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="branches-container">
+                    <!-- Branches will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Management Team Section -->
+        <section id="team" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Management Team</h2>
+                    <div class="w-20 h-1 bg-accent mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">Meet the experienced professionals leading KHEL to new heights.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" id="team-container">
+                    <!-- Team members will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Contact Us</h2>
+                    <div class="w-20 h-1 bg-accent mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">Get in touch with our team for any inquiries or support.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Head Office</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 dark:text-white">Address</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Behind main stage, Thika Town, Kiambu county</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 dark:text-white">Phone</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">+254 726 177925</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 dark:text-white">Email</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">info@kheldistribution.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 dark:text-white">Business Hours</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600 dark:text-gray-300">Saturday: 9:00 AM - 2:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Send Us a Message</h3>
+                        <form class="space-y-4"  method="POST" action="/send-message">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">KHEL</h3>
+                    <p class="text-gray-400">Your trusted partner in wholesale, retail and distribution services across the country.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" onclick="navigate(event, 'home')">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" onclick="navigate(event, 'about')">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" onclick="navigate(event, 'branches')">Our Branches</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" onclick="navigate(event, 'team')">Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" onclick="navigate(event, 'contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Wholesale Distribution</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Retail Operations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Logistics Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Bulk Purchasing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-accent hover:bg-yellow-600 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 KHEL Distribution Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data for branches
+        const branches = [
+            {
+                name: "THIKA HEAD OFFICE Branch",
+                address: "Thika town,Behind Main stage",
+                phone: "+254 726177925",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: ""
+            },
+            {
+                name: "NAIVASHA Branch",
+                address: "Naivasha town,Next to Khetias Supermarket",
+                phone: "",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: ""
+            },
+            {
+                name: "NAKURU Branch",
+                address: "Gusii Rd,Nakuru central CBD",
+                phone: "",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: ""
+            },
+            {
+                name: "KARATINA Branch",
+                address: "Opposite Mathais supermarket, Karatina town",
+                phone: "",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: ""
+            },
+            {
+                name: "NYAHURURU Branch",
+                address: "654 Distribution Blvd, Southern",
+                Town:"", 
+                phone: "",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: "Robert Wilson"
+            },
+            {
+                name: "ENGINEER Branch",
+                address: "654 Distribution Blvd, Southern Town",
+                phone: "",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: "Robert Wilson"
+
+            },
+            {
+                name: "NAROK Branch",
+                address: "987 Supply Street, Central City",
+                phone: "",
+                hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-2PM",
+                manager: ""
+            }
+        ];
+
+        // Data for management team
+        const teamMembers = [
+            {
+                name: "James Ole Mboi",
+                position: "CEO",
+                bio: "Founder and visionary leader with 15+ years in distribution.",
+                
+            },
+            {
+                name: "Sarah Wambui",
+                position: "COO",
+                bio: "Operations expert overseeing all branch activities.",
+                
+            },
+            {
+                name: "Mirriam Wanjiku",
+                position: "CFO",
+                bio: "Financial strategist managing company growth.",
+                
+            },
+            {
+                name: "James Kamau",
+                position: "General Manager",
+                bio: "Where Strategy meets execution.",
+                
+            },
+            {
+                name: "Samuel Machariah",
+                position: "Managing Director",
+                bio: "Vision.Leadership.Results.",
+            },
+            
+        ];
+
+        // Function to generate branch cards
+        function generateBranchCards() {
+            const container = document.getElementById('branches-container');
+            container.innerHTML = branches.map(branch => `
+                <div class="branch-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">${branch.name}</h3>
+                        <div class="flex items-start mb-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-2"></i>
+                            <p class="text-gray-600 dark:text-gray-300">${branch.address}</p>
+                        </div>
+                        <div class="flex items-start mb-3">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-2"></i>
+                            <p class="text-gray-600 dark:text-gray-300">${branch.phone}</p>
+                        </div>
+                        <div class="flex items-start mb-3">
+                            <i class="fas fa-clock text-primary mt-1 mr-2"></i>
+                            <p class="text-gray-600 dark:text-gray-300">${branch.hours}</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-user-tie text-primary mt-1 mr-2"></i>
+                            <p class="text-gray-600 dark:text-gray-300">Manager: ${branch.manager}</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-600 px-6 py-4">
+                        <button onclick="navigate(event, 'contact')" class="text-primary dark:text-accent font-medium flex items-center">
+                            Contact Branch <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Function to generate team cards
+        function generateTeamCards() {
+            const container = document.getElementById('team-container');
+            container.innerHTML = teamMembers.map(member => `
+                <div class="team-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="${member.img}" alt="${member.name}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">${member.name}</h3>
+                        <p class="text-accent font-medium mb-3">${member.position}</p>
+                        <p class="text-gray-600 dark:text-gray-300">${member.bio}</p>
+                        <div class="flex space-x-3 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-accent transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-accent transition duration-300">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Navigation function
+        function navigate(event, sectionId) {
+            event.preventDefault();
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Update URL without reloading
+            history.pushState(null, null, `#${sectionId}`);
+        }
+
+        // Theme toggle functionality
+        function setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+            
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.classList.add(savedTheme);
+                updateThemeIcons(savedTheme);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+                updateThemeIcons('dark');
+            }
+            
+            // Toggle theme
+            function toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                    updateThemeIcons('light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateThemeIcons('dark');
+                }
+            }
+            
+            function updateThemeIcons(theme) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    mobileThemeIcon.classList.remove('fa-moon');
+                    mobileThemeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    mobileThemeIcon.classList.remove('fa-sun');
+                    mobileThemeIcon.classList.add('fa-moon');
+                }
+            }
+            
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+        }
+
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Initialize all functions when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            generateBranchCards();
+            generateTeamCards();
+            setupThemeToggle();
+            setupMobileMenu();
+            
+            // Handle anchor tags with JavaScript
+            document.querySelectorAll('a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
